@@ -32,9 +32,14 @@ html,body,#root{
 .inp{
   width: 85%;
   height: 30px;
-  border:1px solid #000;
+  border:1px solid #ccc;
   margin-top:30px;
   text-indent: 20px;
+}
+.zc{
+  width: 100%;
+  height: 30px;
+  display: flex;
 }
 .btn{
   width: 86%;
@@ -82,4 +87,53 @@ p{
 .ps{
   background: red;
   color:#fff;
+}
+.quan{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #eee;
+  flex-direction: column;
+}
+.lquan{
+  width: 80%;
+  margin-left: 10%;
+  height:70px ;
+  background: #fff;
+  display: flex;
+  border: 2px solid #ccc;
+  border-radius:10px;
+  margin-top: 10px;
+}
+.list{
+  width: 40px;
+  height:70px;
+  margin-top: 10px;
+  margin-left: 7px;
+}
+.list img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.title{
+  width: 82px;
+  height: 70px;
+  margin-left: 8px;
+}
+.title h5{
+  margin-top: 10px;
+}
+.lquan .title p{
+  width: 100%;
+  height: 30px;
+  border: 0;
+  color: #666;
+  text-align: left;
+  margin-top: 10px;
+  
+}
+.data span{
+  color: #ccc;
+  font-size: 12px;
 }
