@@ -19,7 +19,7 @@ function App() {
          <Route path='/home' component={Home}></Route>
          <Route path='/addToupiao' component={AddToupiao}></Route>
 
-         {/* <Redirect from='/' to='/zhuce'></Redirect> */}
+         <Redirect from='/' to='/zhuce'></Redirect>
        </Switch>
       </BrowserRouter> 
     </div>
