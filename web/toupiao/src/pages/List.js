@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import axios from "axios"
-export default class List extends Component {
+import {withRouter} from 'react-router-dom'
+class List extends Component {
     state ={list:[]}
     componentDidMount(){
-        axios.get("/list").then(({data})=>{
+       this.get()
+    }
+    get=()=>{
+         axios.get("/list").then(({data})=>{
             this.setState({list:data})
             console.log(data)
+        })
+    }
+    xiang=(id,item)=>{
+        let {history}=this.props
+        history.push({
+            pathname:"/detail/"+id,
+            name:item
         })
     }
     render() {  
@@ -13,7 +24,7 @@ export default class List extends Component {
         return (
             <div className="quan"> 
               {
-                list.map((item,index)=><div key={index} className="lquan">
+                list.map((item,index)=><div key={index} className="lquan" onClick={this.xiang.bind(this,item.id,item)}>
                     <div className="list"><img src={item.icon}/></div>
                   <div className="title">
                   <h5>{item.userid}</h5>
@@ -29,3 +40,4 @@ export default class List extends Component {
         )
     }
 }
+export default withRouter(List)

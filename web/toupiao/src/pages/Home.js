@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import List from './List'
 // import addToupiao from './AddToupiao'
+import {withRouter} from 'react-router-dom'
 
 
-export default class Home extends Component {
+ class Home extends Component {
 
     addlist(){
         this.props.history.push('/addToupiao')
@@ -27,3 +28,4 @@ export default class Home extends Component {
         )
     }
 }
+export default withRouter(Home)
