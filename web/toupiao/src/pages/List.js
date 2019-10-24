@@ -1,53 +1,44 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from "axios"
 import {withRouter} from 'react-router-dom'
-
- class List extends Component {
-    state={
-        getList:[]
+class List extends Component {
+    state ={list:[]}
+    componentDidMount(){
+       this.get()
     }
-   componentDidMount(){
-      this.xuan()
-   }
-
-   xuan(){
-    axios.get('/list').then(res=>{
-        console.log(res.data)
-        this.setState({
-            getList:res.data
+    get=()=>{
+         axios.get("/list").then(({data})=>{
+            this.setState({list:data})
+            console.log(data)
         })
-    })
-   }
-   toudetail(item){
-    //    console.log(item)
-    //    console.log(this.props)
-    this.props.history.push(`/toudetail/${item.id}`,item)
-}
-    render() {
-        let {getList}=this.state;
+    }
+    xiang=(id,item)=>{
+        let {history}=this.props
+        history.push({
+            pathname:"/detail/"+id,
+            name:item
+        })
+    }
+    render() {  
+        let {list}=this.state
         return (
-            <div className="dls">
-                {
-                getList.map((item,index)=>{
-                    return (
-                       <dl key={index} onClick={()=>{this.toudetail(item)}}>
-                           <dt>
-                               <img src={item.icon}/>
-                           </dt>
-                           <dd>
-                             <div className='one'>
-                               <span>{item.userid}</span>
-                             </div> 
-                             <div className='two'>
-                               <span>{item.con}</span>
-                             </div> 
-                           </dd>
-                       </dl>
-                    )
-                })
-            }
+            <div className="quan"> 
+              {
+                list.map((item,index)=><div key={index} className="lquan" onClick={this.xiang.bind(this,item.id,item)}>
+                    <div className="list"><img src={item.icon}/></div>
+                  <div className="title">
+                  <h5>{item.userid}</h5>
+                  <p>{item.con}</p>
+                  </div>
+                  <div className="data">
+                    <span>{item.time}</span>
+
+                  </div>
+                </div>)  
+              }
             </div>
         )
     }
 }
 export default withRouter(List)
+

@@ -4,7 +4,8 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Zhuce from './pages/Zhuce'
 import AddToupiao from './pages/AddToupiao'
-import TouDetail from './pages/TouDetail'
+import Detail from './pages/Detail'
+import Tongji from './pages/Tongji'
 import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
 
 
@@ -17,7 +18,8 @@ function App() {
          <Route path='/zhuce' component={Zhuce}></Route>
          <Route path='/home' component={Home}></Route>
          <Route path='/addToupiao' component={AddToupiao}></Route>
-         <Route path='/toudetail/:id' component={TouDetail}></Route>
+         <Route path='/detail/:id' component={Detail}></Route>
+         <Route path='/tongji' component={Tongji}></Route>
          <Redirect from='/' to='/zhuce'></Redirect>
        </Switch>
       </BrowserRouter> 

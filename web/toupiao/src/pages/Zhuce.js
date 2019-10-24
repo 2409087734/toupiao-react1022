@@ -25,6 +25,7 @@ state={
         return (
             <div className="box-login">
             <header className="head">欢迎来到沐恩之家</header>
+
             <input className='inp' placeholder="用户名" onChange={(e)=>{
                 let name=this.state.username=e.target.value
                 this.setState({username:name})}}/>
@@ -33,6 +34,7 @@ state={
                 
                 this.setState({psw:name})}}/>
             <button className='btn' onClick={()=>{this.zhu()}}>注册</button>
+
         </div>
         )
     }
